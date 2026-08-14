@@ -1,0 +1,10 @@
+title: Brew
+description: Slow thoughts, poured over.
+url: "https://1403brews.github.io"
+baseurl: "/Brew"
+markdown: kramdown
+
+exclude:
+  - README.md
+  - .obsidian
+  - .gitignore

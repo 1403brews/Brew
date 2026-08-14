@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="post">
+  {% assign section = page.dir | remove: '/' %}
+  {% if section != '' %}<p class="eyebrow">{{ section }}</p>{% endif %}
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-body">
+    {{ content }}
+  </div>
+  <p class="backlink"><a href="{{ '/' | relative_url }}">&larr; all posts</a></p>
+</article>

@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<section class="hero">
+  <svg class="scene" viewBox="0 0 640 400" role="img" aria-label="A gooseneck kettle pouring water into a V60 dripper over a glass server">
+    <!-- counter line -->
+    <line class="ln faint" x1="90" y1="354" x2="560" y2="354"/>
+
+    <!-- glass server -->
+    <g class="server">
+      <path class="ln" d="M215 292 L205 336 Q203 352 220 352 L280 352 Q297 352 295 336 L285 292" fill="none"/>
+      <path class="coffee-fill" d="M207 332 L293 332 L293.5 337 Q294.5 350 280 350 L220 350 Q205.5 350 206.5 337 Z"/>
+      <ellipse class="coffee-surface" cx="250" cy="332" rx="43" ry="3.5"/>
+    </g>
+
+    <!-- V60 dripper -->
+    <g class="dripper">
+      <ellipse class="ln" cx="250" cy="250" rx="58" ry="8" fill="none"/>
+      <path class="ln" d="M192 250 L242 292 M308 250 L258 292" fill="none"/>
+      <path class="ln thin" d="M206 254 L246 288 M294 254 L254 288" fill="none" opacity="0.35"/>
+      <path class="ln" d="M242 292 L242 298 M258 292 L258 298" fill="none"/>
+      <path class="bed" d="M216 256 Q250 268 284 256 L261 285 Q250 291 239 285 Z"/>
+      <circle class="bloom b1" cx="240" cy="264" r="2"/>
+      <circle class="bloom b2" cx="253" cy="267" r="2.4"/>
+      <circle class="bloom b3" cx="264" cy="262" r="1.8"/>
+    </g>
+
+    <!-- drips into server -->
+    <line class="drip d1" x1="250" y1="300" x2="250" y2="306"/>
+    <line class="drip d2" x1="246" y1="300" x2="246" y2="305"/>
+    <line class="drip d3" x1="254" y1="300" x2="254" y2="305"/>
+
+    <!-- water stream -->
+    <path class="stream" d="M256 170 C255 200 252 230 251 256" fill="none"/>
+
+    <!-- gooseneck kettle -->
+    <g class="kettle">
+      <path class="ln cu" d="M385 185 L515 185 Q526 185 524 196 L512 252 Q510 262 498 262 L402 262 Q390 262 388 252 L376 196 Q374 185 385 185" fill="none"/>
+      <path class="ln cu" d="M402 185 Q450 171 498 185" fill="none"/>
+      <circle class="ln cu" cx="450" cy="173" r="4.5" fill="none"/>
+      <path class="ln cu wide" d="M403 181 C420 128 480 128 497 181" fill="none"/>
+      <path class="ln cu wide" d="M388 238 C320 232 285 210 268 186 C262 178 258 172 256 168" fill="none"/>
+      <path class="steam s1" d="M470 160 C462 148 478 138 470 124" fill="none"/>
+      <path class="steam s2" d="M443 160 C451 148 435 138 443 124" fill="none"/>
+    </g>
+  </svg>
+
+  <h1 class="site-title">Brew</h1>
+  <p class="tagline">Slow thoughts, poured over.</p>
+</section>
+
+<section class="index">
+  {% assign notes = site.pages | where_exp: "p", "p.dir != '/'" | sort: "path" %}
+  {% assign sections = notes | group_by_exp: "p", "p.dir" %}
+  {% for sec in sections %}
+  <div class="shelf">
+    <h2 class="eyebrow">{{ sec.name | remove: '/' }}</h2>
+    <ul class="post-list">
+      {% for p in sec.items %}
+      <li><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
