@@ -66,13 +66,13 @@ main { flex: 1; }
   letter-spacing: 0.01em;
 }
 
-/* ---------- corner pour, pinned to the viewport ---------- */
+/* ---------- pour at the bottom-right corner of the text column ---------- */
+.home main { display: flex; flex-direction: column; }
+
 .pour {
-  position: fixed;
-  right: 1.25rem;
-  bottom: 0.75rem;
-  pointer-events: none;
-  z-index: 5;
+  margin-top: auto;
+  padding-top: 3rem;
+  align-self: flex-end;
 }
 
 .scene { width: min(11rem, 38vw); height: auto; display: block; }
