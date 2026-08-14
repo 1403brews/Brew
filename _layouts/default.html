@@ -9,11 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="icon" type="image/png" href="{{ '/assets/img/nc.png' | relative_url }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
 </head>
 <body{% if page.url == "/" %} class="home"{% endif %}>
   <header class="site-head">
-    <a class="wordmark" href="{{ '/' | relative_url }}"><img class="avatar-sm" src="{{ '/assets/img/nc.png' | relative_url }}" alt="">NC</a>
+    <a class="wordmark" href="{{ '/' | relative_url }}">NC</a>
   </header>
   <main>
     {{ content }}
