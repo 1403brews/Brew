@@ -66,10 +66,16 @@ main { flex: 1; }
   letter-spacing: 0.01em;
 }
 
-/* ---------- bottom pour ---------- */
-.pour { padding-top: 4.5rem; }
+/* ---------- corner pour, pinned to the viewport ---------- */
+.pour {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 0.75rem;
+  pointer-events: none;
+  z-index: 5;
+}
 
-.scene { width: min(14rem, 60vw); height: auto; display: block; margin-left: auto; }
+.scene { width: min(11rem, 38vw); height: auto; display: block; }
 
 /* ---------- scene drawing ---------- */
 .ln { stroke: var(--crema); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
