@@ -2,6 +2,25 @@
 layout: default
 ---
 <section class="hero">
+  <h1 class="site-title">Brew</h1>
+</section>
+
+<section class="index">
+  {% assign notes = site.pages | where_exp: "p", "p.dir != '/'" | where_exp: "p", "p.path contains '.md'" | sort: "path" %}
+  {% assign sections = notes | group_by_exp: "p", "p.dir" %}
+  {% for sec in sections %}
+  <div class="shelf">
+    <h2 class="eyebrow">{{ sec.name | remove: '/' }}</h2>
+    <ul class="post-list">
+      {% for p in sec.items %}
+      <li><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
+
+<section class="pour">
   <svg class="scene" viewBox="0 0 640 400" role="img" aria-label="A gooseneck kettle pouring water into a V60 dripper over a glass server">
     <!-- counter line -->
     <line class="ln faint" x1="90" y1="354" x2="560" y2="354"/>
@@ -44,22 +63,4 @@ layout: default
       <path class="steam s2" d="M443 160 C451 148 435 138 443 124" fill="none"/>
     </g>
   </svg>
-
-  <h1 class="site-title">Brew</h1>
-  <p class="tagline">Slow thoughts, poured over.</p>
-</section>
-
-<section class="index">
-  {% assign notes = site.pages | where_exp: "p", "p.dir != '/'" | where_exp: "p", "p.path contains '.md'" | sort: "path" %}
-  {% assign sections = notes | group_by_exp: "p", "p.dir" %}
-  {% for sec in sections %}
-  <div class="shelf">
-    <h2 class="eyebrow">{{ sec.name | remove: '/' }}</h2>
-    <ul class="post-list">
-      {% for p in sec.items %}
-      <li><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endfor %}
 </section>
