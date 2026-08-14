@@ -50,7 +50,7 @@ layout: default
 </section>
 
 <section class="index">
-  {% assign notes = site.pages | where_exp: "p", "p.dir != '/'" | sort: "path" %}
+  {% assign notes = site.pages | where_exp: "p", "p.dir != '/'" | where_exp: "p", "p.path contains '.md'" | sort: "path" %}
   {% assign sections = notes | group_by_exp: "p", "p.dir" %}
   {% for sec in sections %}
   <div class="shelf">
